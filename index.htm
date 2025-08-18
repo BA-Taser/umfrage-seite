@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>GrafStat - befragunghfpol-2r4865</title>
+  <meta charset="utf-8">
+  <META NAME="viewport" content="width=device-width, initial-scale=1">
+<META NAME="GENERATOR" CONTENT="GrafStat Fragebogen [Uwe Diener]">
+<META NAME="KEYWORDS" CONTENT="Befragungssoftware, Fragebogensoftware, Online Befragung, Fragebogen, Befragung, Statistik, statistische Auswertung, Befragungsaktion, Fragebogenaktion, Datenerhebung, Fragebogenprogramm, Internet Befragung, Kundenbefragung, Evaluation">
+<META http-equiv="Cache-control" content="no-cache">
+<META NAME="robots" content="noindex,nofollow">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="stylesheet" href="https://service.grafstat.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</HEAD>
+<BODY onload="initanzeigen()" BGCOLOR="#F0F0F0">
+<div class="container">
+<style>
+  input[type=submit], input[type=reset] { text-decoration: none; background-color: dodgerblue; color: white; display: inline-block; border: 1px solid gray; margin: 4px 6px 14px 6px; padding: 1px 10px; font-family: Arial, Helvetica, sans-serif; font-size: 110%; cursor: pointer;}
+  input[type=checkbox] {   transform: scale(1.06);}
+  input[type=radio] {   transform: scale(1.06);}
+  input[type=text] { transform: scale(1.06); display: inline; margin: 2px 6px 4px 40px; padding: 1px 10px;}
+  gsbtn { text-decoration: none; display: inline-block; border: 1px solid gray; margin: 4px 6px; padding: 1px 10px; font-family: Arial, Helvetica, sans-serif; font-size: 110%;}input[type=submit]:hover { background-color: #4CAF50; color: white; cursor: pointer;}
+  gsbtn:hover { background-color: #4CAF50; color: white; cursor: pointer;}
+  .previous { background-color: #f1f1f1; color: red;}
+  .next { background-color: #4CAF50; color: white;}
+  .active { background-color: #aaa; color: black;}
+  .inactive { background-color: #f1f1f1; color: gray;}
+  .print { background-color: dodgerblue; color: white; margin: 4px 6px 14px 6px;}
+  .round { border-radius: 10%;}
+  .mw_style{ display:block; padding:5px 2px; font:normal normal normal 1.063em Arial, sans serif;}
+  .ew_style{ display:block; padding:5px 2px; font:normal normal normal 1.063em Arial, sans serif;}
+  .radio_style{ display:block; padding:5px 5px; font:normal normal normal 1.063em Arial, sans serif;}
+  .mt_style{ display:inline; margin: 2px 24px; padding:5px 10px; font:normal normal normal 1.063em Arial, sans serif;}
+  
+</style>
+
+  
+  <style>
+  .slidecontainer-high { width: 100%; height: 3.5em; padding: 0px 20px 20px 20px;}
+  .slidecontainer { width: 100%; height: 2.5em; padding: 15px 20px 15px 20px;}
+  .slider { -webkit-appearance: none; width: 100%; height: 10px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s;}
+  .slider:hover { opacity: 1;}
+  .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none;
+  
+    width: 12px; height: 30px; border-radius: 5px; background: #4CAF50; cursor: pointer;}
+  .slider::-moz-range-thumb { width: 12px; height: 30px;
+  
+    border-radius: 5px; background: #4CAF50; cursor: pointer;}
+</style>
+<style>
+  body {background-color: #F0F0F0;}
+  
+  td { height:12px; padding: 2px 6px; border: 2px solid #F0F0F0;}
+  .tdnarrow{ height:4px; padding: 0px 0px;}
+  hr { border-top: 2px dotted darkgray; margin-top: 0.1em; margin-bottom: 0.3em;}
+  label { position: relative; cursor: pointer; padding: 3px; display: block; border: solid 0px; font-weight: 400;}
+  input { border: 1px solid #888; border-radius: 4px;}
+  input:focus { background-color: #F0FFF0;}
+  textarea:focus { background-color: #F0FFF0;}
+  .restanzeige { text-decoration: none; display: inline-block; border: 1px solid lightgreen; margin: 0px; padding: 1px 10px; font-family: Courier New, Helvetica, sans-serif; font-size: 11px;}
+  .gs-stoerung { margin: 0px 0px 0px 0px; padding: 6px 12px; background-color: #fbe5e5; color: black; font: normal normal normal 1.30em Arial, sans serif; text-align: center;;}
+  .gs-titel { margin: 0px 0px 0px 0px; padding: 6px 12px; background-color: #f0f0f0; color: black; font: normal normal normal 1.188em Arial, sans serif;}
+  .gs-untertitel { margin: 0px 0px; padding: 6px 12px; background-color: #f0f0f0; color: black; font: normal normal normal 1.125em Arial, sans serif;}
+  .gs-vorwort { margin: 0px 0px; padding: 6px 12px; background-color: #f0f0f0; color: black; font: italic normal normal 1.063em Arial, sans serif;}
+  .gs-zwischenueberschrift { margin: 5px 0px; padding: 4px 12px; background-color: #f0f0f0; color: black; font: normal normal normal 1.125em Arial, sans serif;}
+  .gs-kurztext { margin: 0px 0px; padding: 6px 12px; background-color: gray; color: yellow; font: normal normal normal 1.188em Arial, sans serif;}
+  .gs-kommentar { margin: 0px 0px; padding: 6px 12px; background-color: [--bgkommentar--]; font: [--kommentarfont--];}
+  .gs-frage { margin: 0px 0px; padding: 6px 12px; background-color: #f0fff0; color: black; font: normal normal normal 1.188em Arial, sans serif;}
+  .gs-anleitung { margin: 0px 0px; padding: 6px 12px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-hinweis { margin: 5px 0px; padding: 6px 12px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-item { margin: 0px 0px; padding: 0px 6px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-skitem { margin: 0px 0px; padding: 0px 6px; background-color: #e8ffff; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-ewitem { margin: 0px 0px; padding: 0px 6px; background-color: #e0ffff; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-mwitem { margin: 0px 0px; padding: 0px 6px; background-color: #e8ffff; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-massitem { margin: 0px 0px; padding: 0px 6px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-dropitem{ margin: 0px 0px; padding: 0px 30px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif;}
+  .gs-schlusstext { margin: 0px 0px; padding: 6px 12px; background-color: #f0f0f0; font: italic normal normal 1.063em Arial, sans serif;}
+  .gs-nachspann { margin: 5px 0px; padding: 6px 12px; background-color: #f0f0f0; font: normal normal normal 1.063em Arial, sans serif; text-align: center;}
+  
+</style>
+
+<script type="text/javascript">
+document.onkeypress = keyPress;
+var isreturn=false;
+var slidervars = []; 
+var slidervalues = [[]]; 
+
+function keyPress(e){
+var x = e || window.event;
+var key = (x.keyCode || x.which);
+  if(key == 13 || key == 3){
+    isreturn=true;
+ }
+}
+
+function checkReturn(event, id) {
+  var char = event.keyCode;
+  if (char==13) {isreturn=true;}
+     else {isreturn=false;}
+  checklaenge(id);   
+}
+
+function checkRest(event, id) {
+  var char = event.keyCode;
+  restanzeige(id); 
+  checklaenge(id);  
+}
+
+function checklaenge(id) {
+  z = document.getElementById(id).maxLength;
+  if (z>0) {
+    rest = z-document.getElementById(id).value.length;
+    if (rest<1) {
+      alert('max. Zeichenzahl erreicht!');
+      document.getElementById(id).border.color = "red";
+    }
+  }
+}
+
+function initanzeigen() {
+
+  sliders = document.getElementsByClassName("slider");
+  sl = sliders.length;
+  for (n = 0; n < sl; n++) {
+    aktid = sliders[n].id;
+    wertanzeige(aktid);
+  }
+  texts = document.getElementsByClassName("textfeld"); 
+  tl = texts.length;
+  for (n = 0; n < tl; n++) {
+    aktid = texts[n].id;
+    restanzeige(aktid);
+  }
+}
+
+function wertanzeige(id) {
+  i = slidervars.indexOf(id);
+  arg = slidervalues[i];
+  mv = arg[1];
+  desc = arg[2];
+  showrangevalue(id, mv, desc);
+}
+
+function showrangevalue(id, minval, descend) {
+  posi =    document.getElementById(id).value;
+  if (descend==-1) {
+    po = document.getElementById(id).max - posi;
+  } else {po = posi;}
+  val = Number(po) + Number(minval);
+  if (posi=='-1') {val=kaText;}
+  outid = id+'_v';
+  document.getElementById(outid).innerHTML = val; 
+}
+
+function restanzeige(id){
+  z = document.getElementById(id).maxLength;
+  rest = z-document.getElementById(id).value.length;
+  outid = id+'_v';
+  mld="noch <b>"+rest+"</b> Zeichen"; 
+  document.getElementById(outid).innerHTML = mld;
+}
+
+function openwindow(Adress) {
+  MyWindow = window.open(Adress, "Second window", "width=480,height=600,left=100,top=200");
+  myWindow.focus();
+}
+
+function GS_Valid_allways(theForm)
+{  return(true); }
+
+function GS_Validator(theForm, akttab)
+{
+  if (isreturn) {
+  isreturn=false;
+    return(false);}
+  return(true);
+}
+</script>
+<form action="https://www.grafstat.de/edudsp/p/gsdaten.php" method="post" name="GrafStat_Form" onsubmit="return GS_Validator(this, 1000)">
+<input type="hidden" name=fgbname value="befragunghfpol-2r4865">
+<table width=740>
+<tr><td><h2><div class=gs-titel>Fragebogen: BefragungHfPol</div></h2></td></tr>
+</table>
+
+<table width=740><tr><td bgColor="#F0F0F0">
+<div class=gs-vorwort>Werte Kolleginnen und Kollegen,<br><br>meine Bachelorarbeit befasst sich mit dem Thema &quot;Welche Schwierigkeiten w&uuml;rden sich bei einer Generaleinf&uuml;hrung des Tasers innerhalb der Polizei Baden-W&uuml;rttemberg ergeben?&quot;. Zielrichtung dieser Onlineumfrage ist es, festzustellen wie es um die aktuelle Auslastung des Bereichs Aus- und Fortbildung steht.<br><br>Die angegebenen Daten werden anonym und vertraulich behandelt und werden ausschlie&szlig;lich zum Zwecke dieser Bachelorarbeit verwendet.<br><br>Falls Sie R&uuml;ckfragen h&auml;tten, k&ouml;nnen Sie mich gerne &uuml;ber guggolz2@hfpol-bw.de kontaktieren.<br><br>F&uuml;r Ihre Unterst&uuml;tzung w&auml;re ich sehr dankbar.</div>
+</td></tr>
+<tr><td><hr></td></tr>
+</table>
+
+<a name="A1"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>1. Sind Sie mit der Verarbeitung ihrer Angaben einverstanden?<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F1_0" class="radio_style"><input type=radio  ID="F1_0" name="F1" value="0" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F1_0" class="ew_style">Ja</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F1_1" class="radio_style"><input type=radio  ID="F1_1" name="F1" value="1" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F1_1" class="ew_style">Nein</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A2"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>2. Wie lange sind Sie bereits Einsatztrainer?<br></div></td></tr></table>
+
+<table width=740>
+<tr><td><div class="gs-massitem"><input  id="F2" name="F2" maxlength="6" size="6" type="text" onkeydown="checkReturn(event, 'F2')"><div class=mt_style></div></div></td></tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A3"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>3. Welchem Polizeip&auml;sidium sind Sie angeh&ouml;rig?<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_0" class="radio_style"><input type=radio  ID="F3_0" name="F3" value="0" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_0" class="ew_style">PP Reutlingen</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_7" class="radio_style"><input type=radio  ID="F3_7" name="F3" value="7" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_7" class="ew_style">PP Mannheim</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_1" class="radio_style"><input type=radio  ID="F3_1" name="F3" value="1" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_1" class="ew_style">PP Aalen</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_8" class="radio_style"><input type=radio  ID="F3_8" name="F3" value="8" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_8" class="ew_style">PP Heilbronn</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_2" class="radio_style"><input type=radio  ID="F3_2" name="F3" value="2" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_2" class="ew_style">PP Ulm</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_9" class="radio_style"><input type=radio  ID="F3_9" name="F3" value="9" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_9" class="ew_style">PP Ludwigsburg</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_3" class="radio_style"><input type=radio  ID="F3_3" name="F3" value="3" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_3" class="ew_style">PP Ravensburg</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_10" class="radio_style"><input type=radio  ID="F3_10" name="F3" value="10" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_10" class="ew_style">PP Karlsruhe</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_4" class="radio_style"><input type=radio  ID="F3_4" name="F3" value="4" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_4" class="ew_style">PP Konstanz</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_11" class="radio_style"><input type=radio  ID="F3_11" name="F3" value="11" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_11" class="ew_style">PP Pforzheim</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_5" class="radio_style"><input type=radio  ID="F3_5" name="F3" value="5" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_5" class="ew_style">PP Freiburg</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_12" class="radio_style"><input type=radio  ID="F3_12" name="F3" value="12" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_12" class="ew_style">PP Stuttgart</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_6" class="radio_style"><input type=radio  ID="F3_6" name="F3" value="6" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_6" class="ew_style">PP Offenburg</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F3_13" class="radio_style"><input type=radio  ID="F3_13" name="F3" value="13" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F3_13" class="ew_style">HfPol</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A4"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>4. Ist das aktuelle Trainingspensum (AZT,SHT...) ausreichend um Polizeibeamte auf den t&auml;glichen Dienst vorzubereiten? </div></td></tr></table>
+
+<table width=740><tr><td bgColor="#F0F0F0"><div class=gs-anleitung>Das aktuelle Trainingspensum ist...<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F4_0" class="radio_style"><input type=radio  ID="F4_0" name="F4" value="0" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F4_0" class="ew_style">Zu hoch</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F4_2" class="radio_style"><input type=radio  ID="F4_2" name="F4" value="2" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F4_2" class="ew_style">Zu niedrig</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F4_1" class="radio_style"><input type=radio  ID="F4_1" name="F4" value="1" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F4_1" class="ew_style">Ausreichend</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F4_3" class="radio_style"><input type=radio  ID="F4_3" name="F4" value="3" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F4_3" class="ew_style">Keine Angaben</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A5"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>5. Wie w&uuml;rden Sie die F&auml;higkeiten der Kollegen mit dem aktuellen Trainingspensum einsch&auml;tzen?<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_0" class="mw_style"><input type=checkbox name="F5[]" ID="F5_0" value="0"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_0" class="mw_style">Sehr gut</label></div></td>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_3" class="mw_style"><input type=checkbox name="F5[]" ID="F5_3" value="3"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_3" class="mw_style">Schlecht</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_1" class="mw_style"><input type=checkbox name="F5[]" ID="F5_1" value="1"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_1" class="mw_style">Gut</label></div></td>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_4" class="mw_style"><input type=checkbox name="F5[]" ID="F5_4" value="4"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_4" class="mw_style">Sehr schlecht</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_2" class="mw_style"><input type=checkbox name="F5[]" ID="F5_2" value="2"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_2" class="mw_style">Befriedigend</label></div></td>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F5_5" class="mw_style"><input type=checkbox name="F5[]" ID="F5_5" value="5"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F5_5" class="mw_style">Keine Angaben</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A6"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>6. Wenn Sie das Trainingspensum erh&ouml;hen k&ouml;nnten, wie viele Stunden w&uuml;rden Sie ansetzen?<br></div></td></tr></table>
+
+<table width=740>
+<tr><td><div class="gs-massitem"><input  id="F6" name="F6" maxlength="6" size="6" type="text" onkeydown="checkReturn(event, 'F6')"><div class=mt_style></div></div></td></tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A7"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>7. Ist mit der aktuellen personalen Auslastung eine Erh&ouml;hung des Trainingspensums bew&auml;ltigbar (beispielsweise zus&auml;tzliche SHT Stunden f&uuml;r Taser)?<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F7_0" class="radio_style"><input type=radio  ID="F7_0" name="F7" value="0" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F7_0" class="ew_style">Leicht bew&auml;ltigbar</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F7_2" class="radio_style"><input type=radio  ID="F7_2" name="F7" value="2" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F7_2" class="ew_style">Nicht bew&auml;ltigbar</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F7_1" class="radio_style"><input type=radio  ID="F7_1" name="F7" value="1" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F7_1" class="ew_style">Bew&auml;ltigbar</label></div></td>
+<td width=40 align=right bgColor="#E0FFFF"><label for="F7_3" class="radio_style"><input type=radio  ID="F7_3" name="F7" value="3" ></label></td><td width=322 align=left bgcolor="#E0FFFF"><div class=gs-ewitem><label for="F7_3" class="ew_style">Keine Angaben</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A8"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>8. F&uuml;r Welche Zielgruppen w&uuml;rden Sie eine Einf&uuml;hrung des Tasers sinnvoll halten?<br></div></td></tr></table>
+
+<table width=740>
+<tr>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F8_0" class="mw_style"><input type=checkbox name="F8[]" ID="F8_0" value="0"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F8_0" class="mw_style">Zielgruppe 1</label></div></td>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F8_2" class="mw_style"><input type=checkbox name="F8[]" ID="F8_2" value="2"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F8_2" class="mw_style">Zielgruppe 3</label></div></td>
+</tr>
+<tr>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F8_1" class="mw_style"><input type=checkbox name="F8[]" ID="F8_1" value="1"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F8_1" class="mw_style">Zielgruppe 2</label></div></td>
+<td width=40 align=right bgColor="#E8FFFF"><label for="F8_3" class="mw_style"><input type=checkbox name="F8[]" ID="F8_3" value="3"></label></td><td width=322 align=left bgcolor="#E8FFFF"><div class=gs-mwitem><label for="F8_3" class="mw_style">Zielgruppe 4</label></div></td>
+</tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A9"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>9. Was halten Sie von einer Generaleinf&uuml;hrung des Tasers innerhalb des Streifendienstes?<br></div></td></tr></table>
+
+<table width=740>
+<tr><td><input  id="F9" name="F9" type="text"  size="89"  onkeydown="checkReturn(event, 'F9')"></td></tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<a name="A10"></a>
+<table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>10. Was halten Sie von einer Generaleinf&uuml;hrung des Tasers innerhalb der Kriminalpolizei?<br></div></td></tr></table>
+
+<table width=740>
+<tr><td><input  id="F10" name="F10" type="text"  size="89"  onkeydown="checkReturn(event, 'F10')"></td></tr>
+</table>
+
+<table width=740><tr><td><hr></td></tr></table>
+
+<table width=740><tr><td bgColor="#F0F0F0">
+<div class=gs-schlusstext>Vielen Dank f&uuml;r die Teilnahme!<br></div>
+</td></tr>
+<tr><td><hr></td></tr>
+</table>
+
+<gsbtn class="print" onclick="javascript:window.print()">Drucken</gsbtn><input type="submit" id="senden" name="last" value="Abschicken">
+</form>
+<table width=740><tr><td><hr></td></tr><tr><td><div class=gs-nachspann>Dieses Formular wurde mit GrafStat (2025 / Ver 6.0) erzeugt.<br> Ein Programm v. Uwe W. Diener 12/2024.<br><b>Informationen</b><br>zur Premium-Version: <a  href="https://www.grafstat.com/de/" target="_blank">https://www.grafstat.com</a><br>zur Bildungsversion: https://www.grafstat.de<br></div></td></tr></table></DIV></BODY> </HTML>
