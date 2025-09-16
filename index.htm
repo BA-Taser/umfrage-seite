@@ -172,13 +172,6 @@ function GS_Validator(theForm, akttab)
   if (isreturn) {
   isreturn=false;
     return(false);}
-   if ((theForm.TAN.value.length < 4) [andakttab])
-   {
-     alert(unescape("%20Eingabefehler:\n\nBitte%20geben%20Sie%20die%20mitgeteilte%20Transaktionsnummer%20ein.%20\n \n"));;
-     [gototab];
-     theForm.TAN.focus();
-     return (false);
-   }
   return(true);
 }
 </script>
@@ -193,8 +186,6 @@ function GS_Validator(theForm, akttab)
 </td></tr>
 <tr><td><hr></td></tr>
 </table>
-
-<table width=740><font face="Arial" size="+1">Codenummer&nbsp;&nbsp;<input name="TAN" size="12" maxlength="20" type=text>&nbsp;(TAN)</table>
 
 <a name="A1"></a>
 <table width=740><tr><td bgColor="#F0FFF0"><div class=gs-frage>1. Sind Sie mit der Verarbeitung Ihrer Angaben einverstanden?<br></div></td></tr></table>
